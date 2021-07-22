@@ -16,15 +16,7 @@ public class CsvToHtmlTable {
         System.out.println("Output file location: " + outputFile);
 
         // read lines of csv to a string array list
-        List<String> lines = new ArrayList<String>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(csvFile))) {
-            String currentLine;
-            while ((currentLine = reader.readLine()) != null) {
-                lines.add(currentLine);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        List<String> lines = readFile(csvFile);
 
         //embrace <td> and <tr> for lines and columns
         for (int i = 0; i < lines.size(); i++) {
@@ -44,6 +36,19 @@ public class CsvToHtmlTable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static List<String> readFile(String csvFile) {
+        List<String> lines = new ArrayList<String>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(csvFile))) {
+            String currentLine;
+            while ((currentLine = reader.readLine()) != null) {
+                lines.add(currentLine);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return lines;
     }
 
     public static void main(String[] args) {
