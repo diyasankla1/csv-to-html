@@ -24,6 +24,7 @@ public class CsvToHtmlTable {
             lines.set(i, lines.get(i).replaceAll(",", "</td><td>"));
         }
 
+
         // embrace <table> and </table>
         lines.set(0, "<table border>" + lines.get(0));
         lines.set(lines.size() - 1, lines.get(lines.size() - 1) + "</table>");
