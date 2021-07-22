@@ -40,7 +40,7 @@ public class CsvToHtmlTable {
     }
 
     private static List<String> readFile(String csvFile) {
-        List<String> lines = new ArrayList<String>();
+        List<String> lines = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(csvFile))) {
             String currentLine;
             while ((currentLine = reader.readLine()) != null) {
